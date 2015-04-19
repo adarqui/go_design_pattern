@@ -1,6 +1,6 @@
 # Design pattern implementation in Go
 
-This is the english translation of monochromegane's execellent design patterns library in go: [](https://github.com/monochromegane/go_design_pattern)
+This is the english translation of monochromegane's execellent design patterns library in go: https://github.com/monochromegane/go_design_pattern
 
 # Design Patterns
 
