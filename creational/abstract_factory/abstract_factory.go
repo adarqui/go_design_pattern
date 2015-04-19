@@ -1,11 +1,13 @@
 package abstract_factory
 
 // 継承ではなくインターフェースによるポリモフィズムを用いる
+// The use of polymorphism by interface rather than inheritance.
 type item interface {
 	toString() string
 }
 
 // インターフェースの埋込も可能
+// "Inherits" toString()
 type link interface {
 	item
 }
@@ -13,6 +15,7 @@ type link interface {
 // インターフェースのポリモフィズムでは構造体間の共通実装やプロパティを
 // 利用することができないため、インターフェースを実装した構造体を埋め込む
 // ことで実現する
+// "Inherits" toString()
 type tray interface {
 	item
 	AddToTray(item item)
@@ -53,9 +56,10 @@ func (self *mdLink) toString() string {
 	return "[" + self.caption + "](" + self.url + ")"
 }
 
+// 共通処理とプロパティを扱える構造体、かつインターフェースによる
+// ポリモフィズムも可能
+// Structure to handle the common processing and properites
 type mdTray struct {
-	// 共通処理とプロパティを扱える構造体、かつインターフェースによる
-	// ポリモフィズムも可能
 	baseTray
 	caption string
 }
@@ -88,9 +92,11 @@ type MdFactory struct {
 func (self *MdFactory) CreateLink(caption, url string) link {
 	return &mdLink{caption, url}
 }
+
 func (self *MdFactory) CreateTray(caption string) tray {
 	return &mdTray{caption: caption}
 }
+
 func (self *MdFactory) CreatePage(title, author string) page {
 	return &mdPage{title: title, author: author}
 }

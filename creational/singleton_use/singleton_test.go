@@ -1,7 +1,7 @@
 package use_singleton
 
 import (
-	"github.com/monochromegane/go_design_pattern/singleton"
+	"github.com/adarqui/go_design_pattern/creational/singleton"
 	"testing"
 )
 
@@ -14,7 +14,7 @@ func TestSingleton(t *testing.T) {
 	instance2 := singleton.GetInstance()
 
 	if instance1 != instance2 {
-		t.Errorf("Expect instance to equal, but not equal.\n")
+		t.Errorf("instance1 != instance2, not a singleton.\n")
 	}
 
 }
